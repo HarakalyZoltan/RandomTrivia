@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#FFDE03</color>
+    <color name="colorPrimaryDark">#0036FF</color>
+    <color name="colorAccent">#FF0266</color>
+    <color name="button">#021548</color>
+    <color name="popup">#1738E9</color>
+    <color name="semiTransparent">#84555555</color>
+    <color name="menu_yellow">#ffef42</color>
+
+</resources>

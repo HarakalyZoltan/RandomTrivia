@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/semiTransparent"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.cardview.widget.CardView
+        app:cardElevation="8dp"
+        app:cardCornerRadius="8dp"
+        app:contentPadding="5dp"
+        app:cardBackgroundColor="@color/menu_yellow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/game_over_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:text="@string/game_over"
+                android:textSize="38sp"
+                android:textStyle="bold"
+                app:fontFamily="@font/chewy" />
+
+
+            <TextView
+                android:id="@+id/popup_combo_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/game_over_txt"
+                android:layout_marginBottom="8dp"
+                android:text="@string/combo"
+                android:textSize="18sp"
+                app:fontFamily="@font/chewy" />
+
+            <TextView
+                android:id="@+id/popup_final_score_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:layout_below="@+id/popup_combo_txt"
+                android:text="@string/final_score"
+                android:textSize="18sp"
+                app:fontFamily="@font/chewy" />
+
+            <ImageButton
+                android:id="@+id/watch_ad_button"
+                android:background="@android:color/transparent"
+                android:layout_below="@id/game_over_txt"
+                android:layout_toRightOf="@id/game_over_txt"
+                android:src="@drawable/ad_button"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:scaleType="fitXY"
+                android:layout_toEndOf="@id/game_over_txt" />
+
+            <TextView
+                android:id="@+id/ad_text"
+                android:layout_marginTop="15dp"
+                android:textStyle="bold"
+                android:textSize="20sp"
+                android:text="@string/_1_life"
+                android:layout_toRightOf="@id/game_over_txt"
+                android:layout_below="@+id/game_over_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toEndOf="@id/game_over_txt" />
+
+            <ImageButton
+                android:id="@+id/share_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="18dp"
+                android:layout_marginLeft="18dp"
+                android:layout_toEndOf="@+id/game_over_txt"
+                android:layout_toRightOf="@+id/game_over_txt"
+                android:background="@android:color/transparent"
+                android:src="@android:drawable/ic_menu_share" />
+
+
+            <Button
+                android:id="@+id/restart_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/popup_final_score_txt"
+                android:background="@color/menu_yellow"
+                android:text="@string/play_again_txt"
+                android:textSize="18sp"
+                app:fontFamily="@font/chewy" />
+
+            <Button
+                android:id="@+id/back_to_menu_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/popup_final_score_txt"
+                android:layout_toEndOf="@+id/restart_button"
+                android:layout_toRightOf="@+id/restart_button"
+                android:layout_marginLeft="25dp"
+                android:layout_marginStart="25dp"
+                android:background="@color/menu_yellow"
+                android:text="@string/exit_txt"
+                android:textSize="18sp"
+                app:fontFamily="@font/chewy" />
+
+
+
+        </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

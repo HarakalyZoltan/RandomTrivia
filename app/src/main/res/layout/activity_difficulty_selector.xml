@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:background="@drawable/background"
+    android:gravity="center"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".DifficultySelectorActivity">
+
+    <TextView
+        android:textSize="38sp"
+        android:text="@string/choose_difficulty"
+        app:fontFamily="@font/chewy"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <Button
+        android:id="@+id/easy_button"
+        android:background="@android:color/transparent"
+        android:text="@string/easy"
+        app:fontFamily="@font/chewy"
+        android:layout_marginBottom="25dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <Button
+        android:id="@+id/medium_button"
+        android:background="@android:color/transparent"
+        android:text="@string/medium"
+        app:fontFamily="@font/chewy"
+        android:layout_marginBottom="25dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <Button
+        android:id="@+id/hard_button"
+        android:background="@android:color/transparent"
+        android:text="@string/hard"
+        app:fontFamily="@font/chewy"
+        android:layout_marginBottom="25dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <Button
+        android:id="@+id/back_button"
+        android:background="@android:color/transparent"
+        android:text="@string/back"
+        app:fontFamily="@font/chewy"
+        android:layout_marginBottom="25dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+</LinearLayout>

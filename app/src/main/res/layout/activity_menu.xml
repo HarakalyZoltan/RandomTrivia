@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:gravity="center"
+    android:background="@drawable/background"
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    tools:context=".MenuActivity">
+
+    <TextView
+        android:text="@string/random_trivia"
+        android:textSize="45sp"
+        android:textStyle="bold"
+        app:fontFamily="@font/chewy"
+        android:layout_marginBottom="25dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <ImageButton
+        android:id="@+id/play_button"
+        android:contentDescription="@string/start_trivia"
+        android:src="@android:drawable/ic_media_play"
+        android:background="@android:color/transparent"
+        android:scaleType="fitXY"
+        android:layout_marginBottom="35dp"
+        android:layout_width="75dp"
+        android:layout_height="75dp"/>
+
+    <ImageButton
+        android:id="@+id/settings_button"
+        android:contentDescription="@string/settings"
+        android:src="@drawable/settings"
+        android:background="@android:color/transparent"
+        android:scaleType="fitXY"
+        android:layout_marginBottom="35dp"
+        android:layout_width="75dp"
+        android:layout_height="75dp"/>
+
+    <ImageButton
+        android:layout_marginLeft="14dp"
+        android:layout_marginStart="14dp"
+        android:id="@+id/exit_button"
+        android:contentDescription="@string/exit_app"
+        android:src="@drawable/exit"
+        android:background="@android:color/transparent"
+        android:scaleType="fitXY"
+        android:layout_width="75dp"
+        android:layout_height="75dp"/>
+
+</LinearLayout>
