@@ -59,7 +59,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private TextView questionTextview;
     private TextView livesTextView;
     private TextView comboTextView;
-    private TextView cheatTextView;
     private Button trueButton;
     private Button falseButton;
     private int currentQuestionIndex = 0;
@@ -108,7 +107,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         currentScore = findViewById(R.id.current_score);
         topScore = findViewById(R.id.top_score);
         comboTextView = findViewById(R.id.combo_text);
-        cheatTextView = findViewById(R.id.cheat_txt);
         countDownTextView = findViewById(R.id.timer_textView);
 
         trueButton.setOnClickListener(this);
@@ -129,7 +127,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             public void processFinished(ArrayList<Question> questionArrayList) {
                 currentQuestionIndex = getRandomNumber(0, questionArrayList.size());
                 questionTextview.setText(questionArrayList.get(currentQuestionIndex).getAnswer());
-                cheatTextView.setText("Answer: " + questionList.get(currentQuestionIndex).getAnswerTrue());
 
             }
         });
@@ -233,8 +230,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         currentScore.setText("Current score: " + score);
         comboTextView.setText("Combo: " + combo);
         livesTextView.setText("Lives: " + lives);
-        cheatTextView.setText("Answer: " + questionList.get(currentQuestionIndex).getAnswerTrue());
-
     }
 
     private void checkAnswer(Boolean answer) {
