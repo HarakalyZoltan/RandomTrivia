@@ -17,12 +17,10 @@ public class DifficultySelectorActivity extends AppCompatActivity implements Vie
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_difficulty_selector);
-
         easyButton = findViewById(R.id.easy_button);
         mediumButton = findViewById(R.id.medium_button);
         hardButton = findViewById(R.id.hard_button);
         backButton = findViewById(R.id.back_button);
-
 
         easyButton.setOnClickListener(this);
         mediumButton.setOnClickListener(this);

@@ -10,7 +10,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
-import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.os.Build;
 import android.os.Bundle;
@@ -22,26 +21,19 @@ import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.WindowManager;
 import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.ImageButton;
-import android.widget.LinearLayout;
 import android.widget.PopupWindow;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.trivia.controller.AppController;
 import com.example.trivia.data.AnswerListAsyncResponse;
 import com.example.trivia.data.QuestionBank;
 import com.example.trivia.model.Question;
 import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.InterstitialAd;
-import com.google.android.gms.ads.MobileAds;
-import com.google.android.gms.ads.initialization.InitializationStatus;
-import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
 import com.google.android.gms.ads.rewarded.RewardItem;
 import com.google.android.gms.ads.rewarded.RewardedAd;
 import com.google.android.gms.ads.rewarded.RewardedAdCallback;
@@ -50,15 +42,16 @@ import com.google.android.gms.ads.rewarded.RewardedAdLoadCallback;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
-import java.util.concurrent.TimeUnit;
 
 //Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon"> www.flaticon.com</a>
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
-
     private TextView questionTextview;
     private TextView livesTextView;
     private TextView comboTextView;
+    private TextView currentScore;
+    private TextView topScore;
+    private ImageButton shareButton;
     private Button trueButton;
     private Button falseButton;
     private int currentQuestionIndex = 0;
@@ -71,9 +64,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private int difficulty = 0;
     private double difficultyMultiplier = 1.0;
     private long time = 0;
-    private TextView currentScore;
-    private TextView topScore;
-    private ImageButton shareButton;
     private Boolean switchPref;
     private Boolean vibratorPref;
     private Vibrator vibrator;
@@ -84,12 +74,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     //Popup
     private PopupWindow popUp = null;
-    private Button restartButton;
-    private Button exitMenuButton;
-    private ImageButton watchAdButton;
-    private TextView adText;
-    private TextView popupComboTextView;
-    private TextView popupfinalScoreTextView;
+
 
     //Ad player
     private RewardedAd rewardedAd;
@@ -113,8 +98,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         falseButton.setOnClickListener(this);
 
         difficulty = getIntent().getIntExtra("difficulty", 0);
-        Log.d("difficulty", "onCreate: " + difficulty);
-
         setDifficulty(difficulty);
         startTimer();
 
@@ -127,7 +110,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             public void processFinished(ArrayList<Question> questionArrayList) {
                 currentQuestionIndex = getRandomNumber(0, questionArrayList.size());
                 questionTextview.setText(questionArrayList.get(currentQuestionIndex).getAnswer());
-
             }
         });
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
@@ -177,7 +159,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     editor.putInt("score", score);
                 }
                 editor.apply();
-
                 setDifficulty(difficulty);
                 startTimer();
                 score = 0;
@@ -208,7 +189,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                                 rewardEarned = false;
                             }
                             rewardedAd = createAndLoadRewardedAd();
-
                         }
 
                         @Override
@@ -244,8 +224,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
             stopTimer();
             startTimer();
-
-
             fadeView();
             combo += 1;
             score += 10 * combo * difficultyMultiplier;
@@ -261,7 +239,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 if (vibratorPref){
                     vibrate();
                 }
-
                 stopTimer();
                 lives--;
                 createPopup();
@@ -273,7 +250,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 if (vibratorPref){
                     vibrate();
                 }
-
                 stopTimer();
                 startTimer();
                 shakeAnimation();
@@ -281,7 +257,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     maxCombo = combo;
                 combo = 0;
                 lives--;
-
                 currentQuestionIndex = (getRandomNumber(0, questionList.size()));
                 updateQuestion();
             }
@@ -359,6 +334,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void createPopup() {
+        Button restartButton;
+        Button exitMenuButton;
+        ImageButton watchAdButton;
+        TextView adText;
+        TextView popupComboTextView;
+        TextView popupfinalScoreTextView;
+
         DisplayMetrics displayMetrics = this.getResources().getDisplayMetrics();
         int width = displayMetrics.widthPixels;
         int height = displayMetrics.heightPixels;
@@ -469,6 +451,4 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         rewardedAd.loadAd(new AdRequest.Builder().build(), adLoadCallback);
         return rewardedAd;
     }
-
-
 }

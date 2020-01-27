@@ -18,8 +18,6 @@ public class MenuActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
-
-
         playButton = findViewById(R.id.play_button);
         settingsButton = findViewById(R.id.settings_button);
         exitButton = findViewById(R.id.exit_button);
@@ -28,7 +26,6 @@ public class MenuActivity extends AppCompatActivity implements View.OnClickListe
         settingsButton.setOnClickListener(this);
         exitButton.setOnClickListener(this);
     }
-
 
     @Override
     public void onClick(View view) {
